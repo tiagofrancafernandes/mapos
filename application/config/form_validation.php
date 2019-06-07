@@ -1,53 +1,53 @@
 <?php
 $config = array('clientes' => array(array(
-                                	'field'=>'nomeCliente',
-                                	'label'=>'Nome',
-                                	'rules'=>'required|trim'
+                                    'field'=>'nomeCliente',
+                                    'label'=>'Nome',
+                                    'rules'=>'required|trim'
                                 ),
-								array(
-                                	'field'=>'documento',
-                                	'label'=>'CPF/CNPJ',
-                                	'rules'=>'required|trim'
+                                array(
+                                    'field'=>'documento',
+                                    'label'=>'CPF/CNPJ',
+                                    'rules'=>'required|trim'
                                 ),
-								array(
-                                	'field'=>'telefone',
-                                	'label'=>'Telefone',
-                                	'rules'=>'required|trim'
+                                array(
+                                    'field'=>'telefone',
+                                    'label'=>'Telefone',
+                                    'rules'=>'required|trim'
                                 ),
-								array(
-                                	'field'=>'email',
-                                	'label'=>'Email',
-                                	'rules'=>'required|trim|valid_email'
+                                array(
+                                    'field'=>'email',
+                                    'label'=>'Email',
+                                    'rules'=>'required|trim|valid_email'
                                 ),
-								array(
-                                	'field'=>'rua',
-                                	'label'=>'Rua',
-                                	'rules'=>'required|trim'
+                                array(
+                                    'field'=>'rua',
+                                    'label'=>'Rua',
+                                    'rules'=>'required|trim'
                                 ),
-								array(
-                                	'field'=>'numero',
-                                	'label'=>'Número',
-                                	'rules'=>'required|trim'
+                                array(
+                                    'field'=>'numero',
+                                    'label'=>'Número',
+                                    'rules'=>'required|trim'
                                 ),
-								array(
-                                	'field'=>'bairro',
-                                	'label'=>'Bairro',
-                                	'rules'=>'required|trim'
+                                array(
+                                    'field'=>'bairro',
+                                    'label'=>'Bairro',
+                                    'rules'=>'required|trim'
                                 ),
-								array(
-                                	'field'=>'cidade',
-                                	'label'=>'Cidade',
-                                	'rules'=>'required|trim'
+                                array(
+                                    'field'=>'cidade',
+                                    'label'=>'Cidade',
+                                    'rules'=>'required|trim'
                                 ),
-								array(
-                                	'field'=>'estado',
-                                	'label'=>'Estado',
-                                	'rules'=>'required|trim'
+                                array(
+                                    'field'=>'estado',
+                                    'label'=>'Estado',
+                                    'rules'=>'required|trim'
                                 ),
-								array(
-                                	'field'=>'cep',
-                                	'label'=>'CEP',
-                                	'rules'=>'required|trim'
+                                array(
+                                    'field'=>'cep',
+                                    'label'=>'CEP',
+                                    'rules'=>'required|trim'
                                 ))
                 ,
                 'servicos' => array(array(
@@ -140,7 +140,7 @@ $config = array('clientes' => array(array(
                                 array(
                                     'field'=>'email',
                                     'label'=>'Email',
-                                    'rules'=>'required|trim|valid_email'
+                                    'rules'=>'required|trim|valid_email|is_unique[usuarios.email]'
                                 ),
                                 array(
                                     'field'=>'senha',
@@ -157,7 +157,7 @@ $config = array('clientes' => array(array(
                                     'label'=>'Situacao',
                                     'rules'=>'required|trim'
                                 ))
-                ,      
+                ,
                 'os' => array(array(
                                     'field'=>'dataInicial',
                                     'label'=>'DataInicial',
@@ -166,11 +166,16 @@ $config = array('clientes' => array(array(
                                 array(
                                     'field'=>'dataFinal',
                                     'label'=>'DataFinal',
-                                    'rules'=>'trim'
+                                    'rules'=>'trim|required'
                                 ),
                                 array(
                                     'field'=>'garantia',
                                     'label'=>'Garantia',
+                                    'rules'=>'trim'
+                                ),
+                                array(
+                                    'field'=>'termoGarantia',
+                                    'label'=>'Termo Garantia',
                                     'rules'=>'trim'
                                 ),
                                 array(
@@ -210,15 +215,15 @@ $config = array('clientes' => array(array(
                                 ))
 
                   ,
-				'tiposUsuario' => array(array(
-                                	'field'=>'nomeTipo',
-                                	'label'=>'NomeTipo',
-                                	'rules'=>'required|trim'
+                'tiposUsuario' => array(array(
+                                    'field'=>'nomeTipo',
+                                    'label'=>'NomeTipo',
+                                    'rules'=>'required|trim'
                                 ),
-								array(
-                                	'field'=>'situacao',
-                                	'label'=>'Situacao',
-                                	'rules'=>'required|trim'
+                                array(
+                                    'field'=>'situacao',
+                                    'label'=>'Situacao',
+                                    'rules'=>'required|trim'
                                 ))
 
                 ,
@@ -275,6 +280,27 @@ $config = array('clientes' => array(array(
                                     'rules'=>'required|trim'
                                 ))
                 ,
+				'garantias' => array(array(
+                                    'field'=>'dataGarantia',
+                                    'label'=>'dataGarantia',
+                                    'rules'=>'trim'
+                                ),
+                                array(
+                                    'field'=>'usuarios_id',
+                                    'label'=>'usuarios_id',
+                                    'rules'=>'trim'
+                                ),
+                                array(
+                                    'field'=>'refGarantia',
+                                    'label'=>'refGarantia',
+                                    'rules'=>'trim'
+                                ),
+                                array(
+                                    'field'=>'textoGarantia',
+                                    'label'=>'textoGarantia',
+                                    'rules'=>'required|trim'
+                                ))
+                ,
                 'vendas' => array(array(
 
                                     'field' => 'dataVenda',
@@ -291,5 +317,4 @@ $config = array('clientes' => array(array(
                                     'label'=>'usuarios_id',
                                     'rules'=>'trim|required'
                                 ))
-		);
-			   
+        );
